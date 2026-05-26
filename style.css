@@ -408,6 +408,15 @@ h3 {
   line-height: 1.7;
 }
 
+.empty-reviews {
+  margin: 0;
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
 .reviews-cta {
   text-align: center;
   padding: 24px;
