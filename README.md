@@ -1,6 +1,6 @@
-# SetupTech Services
+# OrellanaTech
 
-V1 statique du site vitrine et configurateur de demande de devis pour SetupTech Services, activite locale de services informatiques autour de Grenoble.
+V1 statique du site vitrine et configurateur de demande de devis pour OrellanaTech, activite locale de services informatiques autour de Grenoble.
 
 ## Ouvrir le site en local
 
