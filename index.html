@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SetupTech Services propose des services informatiques, setup, NAS et maison connectee a Grenoble et alentours.">
+  <title>SetupTech Services | Services informatiques a Grenoble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="#accueil" aria-label="Accueil SetupTech Services">
+        <span class="brand-mark">ST</span>
+        <span>SetupTech Services</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="main-menu">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#configurateur">Configurateur</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-small" href="#configurateur">Creer ma demande</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Grenoble et alentours</p>
+          <h1>Services informatiques, setup, NAS et maison connectee.</h1>
+          <p class="hero-text">Je vous aide a reparer, monter, optimiser et organiser votre materiel informatique : PC, NAS, setup bureau/gaming, sauvegarde, objets connectes et telephone.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#configurateur">Creer ma demande</a>
+            <a class="btn btn-secondary" href="#services">Voir les tarifs</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Apercu des prestations">
+          <img class="hero-image" src="assets/hero-tech.png" alt="Illustration d'un poste informatique avec ecran, NAS et telephone">
+          <div class="status-card">
+            <span class="status-dot"></span>
+            <span>Devis personnalise sans paiement en ligne</span>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <strong>15 EUR</strong>
+              <span>diagnostic PC</span>
+            </div>
+            <div>
+              <strong>60 EUR</strong>
+              <span>montage PC</span>
+            </div>
+            <div>
+              <strong>40 EUR</strong>
+              <span>domotique legere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Services</p>
+          <h2>Des prestations simples a comprendre</h2>
+          <p>Choisissez une base, detaillez votre besoin, puis envoyez une demande de devis claire.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">PC</div>
+            <h3>Reparation / optimisation PC</h3>
+            <p class="price">A partir de 15 EUR</p>
+            <p>Diagnostic, PC lent, Windows, pilotes, SSD/RAM.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">MB</div>
+            <h3>Montage PC</h3>
+            <p class="price">A partir de 60 EUR</p>
+            <p>Montage PC fixe, choix composants, Windows, drivers, tests.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">SET</div>
+            <h3>Setup bureau / teletravail / gaming</h3>
+            <p class="price">A partir de 50 EUR</p>
+            <p>Double ecran, clavier, souris, webcam, rangement cables, confort.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">NAS</div>
+            <h3>NAS / sauvegarde</h3>
+            <p class="price">A partir de 70 EUR</p>
+            <p>NAS, photos, documents, sauvegarde PC, dossiers partages.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">IoT</div>
+            <h3>Domotique legere</h3>
+            <p class="price">A partir de 40 EUR</p>
+            <p>Lampes connectees, prises connectees, volets deja compatibles avec application, Google Home, Alexa, Home Assistant.</p>
+            <p class="service-note">Sans modification d'installation electrique fixe.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">TEL</div>
+            <h3>Remplacement ecran telephone</h3>
+            <p class="price">A partir de 30 EUR</p>
+            <p>Ecran casse, aide au choix de la piece, test tactile/affichage.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">APP</div>
+            <h3>Applications locales sur mesure</h3>
+            <p class="price">A partir de 20 EUR</p>
+            <p>Creation de petits logiciels locaux, automatisation Excel, outils de gestion simple, suivi client, gestion de stock, formulaires, tableaux de bord, calculs automatiques.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section configurator-section" id="configurateur">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Configurateur</p>
+          <h2>Construire ma demande de devis</h2>
+          <p>Ajoutez une ou plusieurs prestations, puis envoyez le recapitulatif avec vos coordonnees.</p>
+        </div>
+        <div class="config-layout">
+          <div class="config-panel">
+            <label class="field-label" for="category-select">Categorie de besoin</label>
+            <select id="category-select">
+              <option value="">Choisir une categorie</option>
+            </select>
+            <div id="dynamic-questions" class="questions"></div>
+            <button id="add-to-cart" class="btn full-width" type="button">Ajouter a ma demande</button>
+            <p id="config-message" class="form-message" aria-live="polite"></p>
+          </div>
+
+          <aside class="cart-panel" aria-label="Panier de demande">
+            <div class="cart-header">
+              <div>
+                <p class="eyebrow">Recapitulatif</p>
+                <h3>Ma demande</h3>
+              </div>
+              <button id="clear-cart" class="text-button" type="button">Vider</button>
+            </div>
+            <div id="cart-items" class="cart-items">
+              <p class="empty-cart">Aucun service ajoute pour le moment.</p>
+            </div>
+            <div class="cart-total">
+              <span>Total estime</span>
+              <strong id="cart-total">0 EUR</strong>
+            </div>
+            <p class="estimate-note">Prix estimatif. Le devis final est confirme apres echange selon le materiel, la distance et la difficulte.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Envoyer ma demande</h2>
+          <p>Le formulaire envoie le contenu du panier avec vos coordonnees. Aucun paiement n'est effectue sur le site.</p>
+          <ul class="check-list">
+            <li>Intervention locale autour de Grenoble</li>
+            <li>Estimation ajustee apres echange</li>
+            <li>Configuration domotique limitee aux objets compatibles</li>
+          </ul>
+        </div>
+
+        <form id="quote-form" class="contact-form" action="https://formspree.io/f/REMPLACER_PAR_MON_ID" method="POST">
+          <div class="form-row">
+            <label>
+              Prenom *
+              <input type="text" name="prenom" id="first-name" autocomplete="given-name">
+            </label>
+            <label>
+              Nom
+              <input type="text" name="nom" autocomplete="family-name">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Email *
+              <input type="email" name="email" id="email" autocomplete="email">
+            </label>
+            <label>
+              Telephone *
+              <input type="tel" name="telephone" id="phone" autocomplete="tel">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Ville *
+              <input type="text" name="ville" id="city" autocomplete="address-level2">
+            </label>
+            <label>
+              Creneau souhaite
+              <input type="text" name="creneau" placeholder="Ex : soir, samedi, semaine">
+            </label>
+          </div>
+          <label>
+            Message complementaire
+            <textarea name="message" rows="5" placeholder="Modele du PC, reference telephone, contraintes, disponibilites..."></textarea>
+          </label>
+          <input type="hidden" name="recapitulatif_panier" id="cart-summary">
+          <button class="btn full-width" type="submit">Envoyer ma demande</button>
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>SetupTech Services - Grenoble et alentours</p>
+      <p>Services informatiques, setup, NAS et maison connectee. Pas de paiement en ligne.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
