@@ -9,7 +9,8 @@ const prices = {
   nasSimple: 70,
   domotiqueLegere: 40,
   ecranTelephone: 30,
-  applicationLocale: 20
+  applicationLocale: 20,
+  siteWebFormulaire: 80
 };
 
 const categories = {
@@ -203,6 +204,42 @@ const categories = {
         title: "Format souhaite",
         type: "radio",
         options: ["Application Windows locale", "Fichier Excel automatise", "Script simple", "Tableau de bord", "Je veux un conseil"]
+      },
+      {
+        id: "budget",
+        title: "Budget",
+        type: "radio",
+        options: ["Moins de 100 EUR", "100 a 250 EUR", "250 a 500 EUR", "Plus de 500 EUR"]
+      }
+    ]
+  },
+  siteWebFormulaire: {
+    label: "Site web personnalise avec formulaire",
+    basePrice: prices.siteWebFormulaire,
+    questions: [
+      {
+        id: "besoinPrincipal",
+        title: "Besoin principal",
+        type: "radio",
+        options: ["Site vitrine", "Page de presentation", "Formulaire de contact", "Formulaire de devis", "Refonte d'un site existant", "Je veux un conseil"]
+      },
+      {
+        id: "pages",
+        title: "Nombre de pages",
+        type: "radio",
+        options: ["1 page", "2 a 3 pages", "4 a 6 pages", "Plus de 6 pages", "Je ne sais pas"]
+      },
+      {
+        id: "formulaire",
+        title: "Type de formulaire",
+        type: "checkbox",
+        options: ["Contact", "Demande de devis", "Reservation / rendez-vous", "Inscription", "Envoi vers email", "Je veux un conseil"]
+      },
+      {
+        id: "utilisateur",
+        title: "Utilisateur",
+        type: "radio",
+        options: ["Particulier", "Association", "Artisan", "Petit commerce", "Entreprise"]
       },
       {
         id: "budget",
@@ -440,7 +477,9 @@ function labelFromKey(key) {
     ecran: "Ecran",
     besoinPrincipal: "Besoin principal",
     utilisateur: "Utilisateur",
-    format: "Format souhaite"
+    format: "Format souhaite",
+    pages: "Pages",
+    formulaire: "Formulaire"
   };
 
   return labels[key] || key;
