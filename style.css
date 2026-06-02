@@ -160,7 +160,7 @@ textarea {
 }
 
 .hero {
-  padding: 68px 0 50px;
+  padding: 58px 0 46px;
   background:
     linear-gradient(135deg, rgba(12, 59, 102, 0.98), rgba(8, 122, 122, 0.92)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
@@ -169,8 +169,8 @@ textarea {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
-  gap: 42px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.82fr);
+  gap: 34px;
   align-items: center;
 }
 
@@ -195,8 +195,8 @@ h3 {
 }
 
 h1 {
-  max-width: 720px;
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  max-width: 640px;
+  font-size: clamp(2.25rem, 4.4vw, 3.55rem);
 }
 
 h2 {
@@ -208,17 +208,17 @@ h3 {
 }
 
 .hero-text {
-  max-width: 620px;
-  margin: 20px 0 0;
+  max-width: 590px;
+  margin: 18px 0 0;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 1.08rem;
+  font-size: 1.02rem;
 }
 
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .hero-tags span {
@@ -239,7 +239,7 @@ h3 {
 }
 
 .hero-panel {
-  padding: 20px;
+  padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.11);
@@ -250,7 +250,7 @@ h3 {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   border-radius: var(--radius);
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -281,8 +281,8 @@ h3 {
 }
 
 .hero-metrics div {
-  min-height: 84px;
-  padding: 14px;
+  min-height: 76px;
+  padding: 12px;
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.13);
 }
