@@ -37,8 +37,8 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <p class="eyebrow">Grenoble et alentours</p>
-          <h1>Services informatiques, setup, NAS, sites web et maison connectée.</h1>
-          <p class="hero-text">Je vous aide à réparer, monter, optimiser et organiser votre matériel informatique : PC, Mac, NAS, setup bureau/gaming, sauvegarde, objets connectés, téléphone et site web personnalisé avec formulaire.</p>
+          <h1>Informatique, sites web et logiciels sur mesure à Grenoble.</h1>
+          <p class="hero-text">OrellanaTech accompagne les particuliers, étudiants, indépendants et petites entreprises pour leurs besoins informatiques, leurs sites web et leurs solutions numériques personnalisées.</p>
           <div class="hero-actions">
             <a class="btn" href="#configurateur">Creer ma demande</a>
             <a class="btn btn-secondary" href="#services">Voir les tarifs</a>
@@ -52,16 +52,16 @@
           </div>
           <div class="hero-metrics">
             <div>
-              <strong>15 EUR</strong>
+              <strong>30 EUR</strong>
               <span>diagnostic PC</span>
             </div>
             <div>
-              <strong>60 EUR</strong>
+              <strong>100 EUR</strong>
               <span>montage PC</span>
             </div>
             <div>
-              <strong>40 EUR</strong>
-              <span>domotique legere</span>
+              <strong>290 EUR</strong>
+              <span>site avec formulaire</span>
             </div>
           </div>
         </div>
@@ -72,57 +72,64 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Services</p>
-          <h2>Des prestations simples à comprendre</h2>
-          <p>Choisissez une base, détaillez votre besoin, puis envoyez une demande de devis claire.</p>
+          <h2>Choisissez votre secteur d'activité</h2>
+          <p>Chaque service est rangé par domaine pour trouver rapidement la prestation adaptée à votre besoin.</p>
+        </div>
+        <div class="service-tabs" role="tablist" aria-label="Secteurs d'activite">
+          <button class="service-tab active" type="button" role="tab" aria-selected="true" data-sector="informatique">Informatique</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-sector="web">Sites web</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-sector="outils">Logiciels sur mesure</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-sector="connecte">Maison connectee</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-sector="all">Tout voir</button>
         </div>
         <div class="services-grid">
-          <article class="service-card">
+          <article class="service-card" data-sector="informatique">
             <div class="service-icon">PC</div>
             <h3>Réparation / optimisation PC & Mac</h3>
-            <p class="price">À partir de 15 EUR</p>
+            <p class="price">À partir de 30 EUR</p>
             <p>Diagnostic, système lent, Windows, macOS, pilotes, SSD/RAM.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" data-sector="informatique">
             <div class="service-icon">MB</div>
             <h3>Montage PC & Mac</h3>
-            <p class="price">À partir de 60 EUR</p>
+            <p class="price">À partir de 100 EUR</p>
             <p>Montage PC fixe, choix composants, Windows, Mac, drivers, tests.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" data-sector="informatique">
             <div class="service-icon">SET</div>
             <h3>Setup bureau / télétravail / gaming</h3>
-            <p class="price">À partir de 50 EUR</p>
+            <p class="price">À partir de 80 EUR</p>
             <p>Double écran, clavier, souris, webcam, rangement câbles, confort.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card" data-sector="informatique">
             <div class="service-icon">NAS</div>
             <h3>NAS / sauvegarde</h3>
-            <p class="price">À partir de 70 EUR</p>
+            <p class="price">À partir de 120 EUR</p>
             <p>NAS, photos, documents, sauvegarde PC, dossiers partagés.</p>
           </article>
-          <article class="service-card">
-            <div class="service-icon">IoT</div>
-            <h3>Domotique légère</h3>
-            <p class="price">À partir de 40 EUR</p>
-            <p>Lampes, prises et volets commandables avec application; Google Home, Alexa, Home Assistant.</p>
-          </article>
-          <article class="service-card">
+          <article class="service-card" data-sector="informatique">
             <div class="service-icon">TEL</div>
             <h3>Remplacement écran téléphone</h3>
-            <p class="price">À partir de 30 EUR</p>
+            <p class="price">À partir de 40 EUR + pièce</p>
             <p>Écran cassé, aide au choix de la pièce, test tactile/affichage.</p>
           </article>
-          <article class="service-card">
-            <div class="service-icon">APP</div>
-            <h3>Applications locales sur mesure</h3>
-            <p class="price">À partir de 20 EUR</p>
-            <p>Création de petits logiciels locaux, automatisation Excel, outils de gestion simple, suivi client, gestion de stock, formulaires, tableaux de bord, calculs automatiques.</p>
-          </article>
-          <article class="service-card">
+          <article class="service-card" data-sector="web">
             <div class="service-icon">WEB</div>
             <h3>Site web personnalisé avec formulaire</h3>
-            <p class="price">À partir de 80 EUR</p>
+            <p class="price">À partir de 290 EUR</p>
             <p>Site vitrine simple, page de présentation, formulaire de contact ou demande de devis, intégration mobile et mise en ligne.</p>
+          </article>
+          <article class="service-card" data-sector="outils">
+            <div class="service-icon">APP</div>
+            <h3>Logiciels sur mesure</h3>
+            <p class="price">À partir de 300 EUR</p>
+            <p>Création de logiciels personnalisés, automatisation Excel, gestion simple, suivi client, gestion de stock, formulaires, tableaux de bord, calculs automatiques.</p>
+          </article>
+          <article class="service-card" data-sector="connecte">
+            <div class="service-icon">IoT</div>
+            <h3>Domotique légère</h3>
+            <p class="price">À partir de 80 EUR</p>
+            <p>Lampes, prises et volets commandables avec application; Google Home, Alexa, Home Assistant.</p>
           </article>
         </div>
       </div>
@@ -132,8 +139,8 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Configurateur</p>
-          <h2>Construire ma demande de devis</h2>
-          <p>Ajoutez une ou plusieurs prestations, puis envoyez le récapitulatif avec vos coordonnées.</p>
+          <h2>Composez votre demande en quelques clics</h2>
+          <p>Ajoutez une ou plusieurs prestations, puis envoyez un récapitulatif clair avec vos coordonnées.</p>
         </div>
         <div class="config-layout">
           <div class="config-panel">
@@ -171,16 +178,31 @@
       <div class="container contact-grid">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Envoyer ma demande</h2>
-          <p>Le formulaire envoie le contenu du panier avec vos coordonnées. Aucun paiement n'est effectué sur le site.</p>
+          <h2>Parlons de votre projet</h2>
+          <p>Une panne, un site web, un logiciel sur mesure ou une installation à préparer ? Envoyez votre demande, je vous réponds avec une estimation claire.</p>
           <ul class="check-list">
             <li>Intervention locale autour de Grenoble</li>
             <li>Estimation ajustée après échange</li>
+            <li>Contact possible par téléphone, email ou formulaire</li>
             <li>Configuration domotique limitée aux objets compatibles</li>
           </ul>
+          <div class="contact-methods">
+            <button class="contact-method copy-contact" type="button" data-copy="07 59 72 78 56" data-label="Téléphone">
+              <span>Telephone</span>
+              <strong>07 59 72 78 56</strong>
+            </button>
+            <button class="contact-method copy-contact" type="button" data-copy="orellanatech37@gmail.com" data-label="Email">
+              <span>Email</span>
+              <strong>orellanatech37@gmail.com</strong>
+            </button>
+          </div>
         </div>
 
         <form id="quote-form" class="contact-form" action="https://formspree.io/f/mbdbpogj" method="POST">
+          <div class="form-heading">
+            <p class="eyebrow">Demande de devis</p>
+            <h3>Décrire mon besoin</h3>
+          </div>
           <div class="form-row">
             <label>
               Prénom *
@@ -225,8 +247,28 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>OrellanaTech - Grenoble et alentours</p>
-      <p>Services informatiques (PC & Mac), setup, NAS et maison connectée. Pas de paiement en ligne.</p>
+      <div>
+        <p>OrellanaTech - Grenoble et alentours</p>
+        <p>Services informatiques, sites web, logiciels sur mesure, setup, NAS et maison connectée.</p>
+      </div>
+      <div class="footer-links">
+        <button class="copy-link copy-contact" type="button" data-copy="07 59 72 78 56" data-label="Téléphone">07 59 72 78 56</button>
+        <button class="copy-link copy-contact" type="button" data-copy="orellanatech37@gmail.com" data-label="Email">orellanatech37@gmail.com</button>
+      </div>
+    </div>
+    <div class="container legal-band">
+      <details>
+        <summary>Mentions légales</summary>
+        <p><strong>Éditeur du site :</strong> OrellanaTech. <strong>Contact :</strong> orellanatech37@gmail.com - 07 59 72 78 56. <strong>Zone d'intervention :</strong> Grenoble et alentours. <strong>Hébergement :</strong> à compléter selon la plateforme utilisée.</p>
+      </details>
+      <details>
+        <summary>Confidentialité</summary>
+        <p>Les informations envoyées via le formulaire servent uniquement à répondre à votre demande, préparer une estimation ou échanger sur une prestation. Elles ne sont pas vendues ni utilisées pour de la prospection automatique.</p>
+      </details>
+      <details>
+        <summary>Conditions de service</summary>
+        <p>Les tarifs affichés sont indicatifs et présentés "à partir de". Aucun paiement n'est effectué sur le site. Une demande envoyée via le formulaire ne devient une commande qu'après confirmation d'un devis ou d'un accord.</p>
+      </details>
     </div>
   </footer>
 

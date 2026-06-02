@@ -298,10 +298,43 @@ h3 {
   color: var(--muted);
 }
 
+.service-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.service-tab {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.service-tab:hover {
+  border-color: var(--teal);
+  background: var(--surface-soft);
+}
+
+.service-tab.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+}
+
+.service-card.hidden {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -589,6 +622,65 @@ textarea:focus {
   background: var(--teal);
 }
 
+.contact-methods {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.contact-method {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  cursor: pointer;
+}
+
+.contact-method span,
+.contact-method strong {
+  display: block;
+}
+
+.contact-method span {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-method strong {
+  color: var(--primary);
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-method:hover {
+  border-color: var(--teal);
+  background: var(--surface-soft);
+}
+
+.contact-method.copied {
+  border-color: var(--teal);
+  background: var(--surface-soft);
+}
+
+.contact-method.copied::after {
+  content: "Copié";
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -598,6 +690,14 @@ textarea:focus {
 .contact-form {
   display: grid;
   gap: 16px;
+}
+
+.form-heading {
+  margin-bottom: 4px;
+}
+
+.form-heading h3 {
+  font-size: 1.5rem;
 }
 
 .form-message {
@@ -632,6 +732,59 @@ textarea:focus {
   margin: 0;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  justify-content: flex-end;
+}
+
+.footer-links a,
+.copy-link {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.copy-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.copy-link:hover {
+  text-decoration: underline;
+}
+
+.legal-band {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.legal-band details {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.legal-band summary {
+  padding: 12px 14px;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.legal-band p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
+}
+
 @media (max-width: 920px) {
   .menu-toggle {
     display: block;
@@ -658,7 +811,8 @@ textarea:focus {
 
   .hero-grid,
   .config-layout,
-  .contact-grid {
+  .contact-grid,
+  .legal-band {
     grid-template-columns: 1fr;
   }
 
@@ -704,5 +858,9 @@ textarea:focus {
   .cart-panel,
   .contact-form {
     padding: 18px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }

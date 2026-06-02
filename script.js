@@ -1,16 +1,16 @@
 const prices = {
-  diagnosticPc: 15,
-  optimisationPc: 35,
-  reinstallWindows: 50,
-  ssdRam: 30,
-  montagePc: 60,
-  montageWindowsDrivers: 90,
-  setupSimple: 50,
-  nasSimple: 70,
-  domotiqueLegere: 40,
-  ecranTelephone: 30,
-  applicationLocale: 20,
-  siteWebFormulaire: 80
+  diagnosticPc: 30,
+  optimisationPc: 50,
+  reinstallWindows: 80,
+  ssdRam: 50,
+  montagePc: 100,
+  montageWindowsDrivers: 130,
+  setupSimple: 80,
+  nasSimple: 120,
+  domotiqueLegere: 80,
+  ecranTelephone: 40,
+  applicationLocale: 300,
+  siteWebFormulaire: 290
 };
 
 const categories = {
@@ -184,14 +184,14 @@ const categories = {
     ]
   },
   applicationLocale: {
-    label: "Application locale sur mesure",
+    label: "Logiciel sur mesure",
     basePrice: prices.applicationLocale,
     questions: [
       {
         id: "besoinPrincipal",
         title: "Besoin principal",
         type: "radio",
-        options: ["Gestion de stock", "Suivi client", "Automatisation Excel", "Formulaire avec export", "Outil de devis/facture simple", "Tableau de bord", "Calcul automatique", "Organisation de fichiers", "Autre"]
+        options: ["Gestion de stock", "Suivi client", "Automatisation Excel", "Formulaire avec export", "Logiciel de devis/facture simple", "Tableau de bord", "Calcul automatique", "Organisation de fichiers", "Autre"]
       },
       {
         id: "utilisateur",
@@ -203,13 +203,13 @@ const categories = {
         id: "format",
         title: "Format souhaite",
         type: "radio",
-        options: ["Application Windows locale", "Fichier Excel automatise", "Script simple", "Tableau de bord", "Je veux un conseil"]
+        options: ["Logiciel Windows local", "Fichier Excel automatise", "Script simple", "Tableau de bord", "Je veux un conseil"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 100 EUR", "100 a 250 EUR", "250 a 500 EUR", "Plus de 500 EUR"]
+        options: ["300 a 500 EUR", "500 a 1000 EUR", "1000 a 2000 EUR", "Plus de 2000 EUR", "Je veux d'abord estimer"]
       }
     ]
   },
@@ -245,7 +245,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 100 EUR", "100 a 250 EUR", "250 a 500 EUR", "Plus de 500 EUR"]
+        options: ["290 a 500 EUR", "500 a 1000 EUR", "1000 a 2000 EUR", "Plus de 2000 EUR", "Je veux d'abord estimer"]
       }
     ]
   }
@@ -265,6 +265,9 @@ const formMessage = document.querySelector("#form-message");
 const configMessage = document.querySelector("#config-message");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector("#main-menu");
+const serviceTabs = document.querySelectorAll(".service-tab");
+const serviceCards = document.querySelectorAll(".service-card[data-sector]");
+const copyButtons = document.querySelectorAll(".copy-contact");
 
 function formatPrice(value) {
   return `${value} EUR`;
@@ -556,8 +559,69 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+function filterServices(sector) {
+  serviceCards.forEach((card) => {
+    const shouldShow = sector === "all" || card.dataset.sector === sector;
+    card.classList.toggle("hidden", !shouldShow);
+  });
+}
+
+function setActiveServiceTab(selectedTab) {
+  serviceTabs.forEach((tab) => {
+    const isActive = tab === selectedTab;
+    tab.classList.toggle("active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+  });
+
+  filterServices(selectedTab.dataset.sector);
+}
+
+async function copyToClipboard(value) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+}
+
+async function handleCopyContact(button) {
+  const value = button.dataset.copy;
+  const label = button.dataset.label || "Contact";
+  const originalText = button.textContent;
+
+  try {
+    await copyToClipboard(value);
+    button.classList.add("copied");
+    button.setAttribute("aria-label", `${label} copié`);
+
+    if (button.classList.contains("copy-link")) {
+      button.textContent = "Copié";
+    }
+
+    setTimeout(() => {
+      button.classList.remove("copied");
+      button.setAttribute("aria-label", `Copier ${label}`);
+      if (button.classList.contains("copy-link")) {
+        button.textContent = originalText;
+      }
+    }, 1400);
+  } catch (error) {
+    showFormError("Impossible de copier automatiquement. Selectionne le contact manuellement.");
+  }
+}
+
 initCategories();
 renderCart();
+filterServices("informatique");
 
 categorySelect.addEventListener("change", renderQuestions);
 addToCartButton.addEventListener("click", addToCart);
@@ -568,4 +632,11 @@ navLinks.addEventListener("click", (event) => {
   if (event.target.tagName === "A") {
     closeMenu();
   }
+});
+serviceTabs.forEach((tab) => {
+  tab.addEventListener("click", () => setActiveServiceTab(tab));
+});
+copyButtons.forEach((button) => {
+  button.setAttribute("aria-label", `Copier ${button.dataset.label || "contact"}`);
+  button.addEventListener("click", () => handleCopyContact(button));
 });
