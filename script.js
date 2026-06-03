@@ -28,7 +28,7 @@ const categories = {
         id: "budget",
         title: "Budget reparation",
         type: "radio",
-        options: ["Moins de 30 EUR", "30 a 60 EUR", "60 a 100 EUR", "Plus de 100 EUR", "Je veux d'abord un diagnostic"]
+        options: ["Moins de 30 \u20ac", "30 à 60 \u20ac", "60 à 100 \u20ac", "Plus de 100 \u20ac", "Je veux d'abord un diagnostic"]
       }
     ]
   },
@@ -46,7 +46,7 @@ const categories = {
         id: "budget",
         title: "Budget materiel",
         type: "radio",
-        options: ["Moins de 400 EUR", "400 a 600 EUR", "600 a 800 EUR", "800 a 1000 EUR", "1000 a 1500 EUR", "Plus de 1500 EUR", "Je ne sais pas"]
+        options: ["Moins de 400 \u20ac", "400 à 600 \u20ac", "600 à 800 \u20ac", "800 à 1000 \u20ac", "1000 à 1500 \u20ac", "Plus de 1500 \u20ac", "Je ne sais pas"]
       },
       {
         id: "materiel",
@@ -82,7 +82,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 EUR", "50 a 100 EUR", "Plus de 100 EUR", "Je ne sais pas"]
+        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "Plus de 100 \u20ac", "Je ne sais pas"]
       }
     ]
   },
@@ -106,7 +106,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 EUR", "50 a 100 EUR", "100 a 250 EUR", "Plus de 250 EUR"]
+        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "100 à 250 \u20ac", "Plus de 250 \u20ac"]
       }
     ]
   },
@@ -130,7 +130,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 100 EUR", "100 a 250 EUR", "250 a 500 EUR", "Plus de 500 EUR"]
+        options: ["Moins de 100 \u20ac", "100 à 250 \u20ac", "250 à 500 \u20ac", "Plus de 500 \u20ac"]
       }
     ]
   },
@@ -155,7 +155,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 EUR", "50 a 150 EUR", "150 a 300 EUR", "Plus de 300 EUR"]
+        options: ["Moins de 50 \u20ac", "50 à 150 \u20ac", "150 à 300 \u20ac", "Plus de 300 \u20ac"]
       }
     ]
   },
@@ -179,7 +179,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 EUR", "50 a 100 EUR", "Plus de 100 EUR", "Je veux savoir si ca vaut le coup"]
+        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "Plus de 100 \u20ac", "Je veux savoir si ca vaut le coup"]
       }
     ]
   },
@@ -209,7 +209,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["300 a 500 EUR", "500 a 1000 EUR", "1000 a 2000 EUR", "Plus de 2000 EUR", "Je veux d'abord estimer"]
+        options: ["300 à 500 \u20ac", "500 à 1000 \u20ac", "1000 à 2000 \u20ac", "Plus de 2000 \u20ac", "Je veux d'abord estimer"]
       }
     ]
   },
@@ -245,7 +245,7 @@ const categories = {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["290 a 500 EUR", "500 a 1000 EUR", "1000 a 2000 EUR", "Plus de 2000 EUR", "Je veux d'abord estimer"]
+        options: ["290 à 500 \u20ac", "500 à 1000 \u20ac", "1000 à 2000 \u20ac", "Plus de 2000 \u20ac", "Je veux d'abord estimer"]
       }
     ]
   }
@@ -270,7 +270,7 @@ const serviceCards = document.querySelectorAll(".service-card[data-sector]");
 const copyButtons = document.querySelectorAll(".copy-contact");
 
 function formatPrice(value) {
-  return `${value} EUR`;
+  return `${value} \u20ac`;
 }
 
 function initCategories() {
@@ -601,10 +601,10 @@ async function handleCopyContact(button) {
   try {
     await copyToClipboard(value);
     button.classList.add("copied");
-    button.setAttribute("aria-label", `${label} copié`);
+    button.setAttribute("aria-label", `${label} copi\u00e9`);
 
     if (button.classList.contains("copy-link")) {
-      button.textContent = "Copié";
+      button.textContent = "Copi\u00e9";
     }
 
     setTimeout(() => {

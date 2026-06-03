@@ -353,6 +353,10 @@ h3 {
 }
 
 .service-card,
+.feature-card,
+.portfolio-card,
+.about-card,
+.faq-list details,
 .config-panel,
 .cart-panel,
 .contact-form {
@@ -364,6 +368,122 @@ h3 {
 
 .service-card {
   padding: 22px;
+}
+
+.trust-section,
+.portfolio-section {
+  background: #ffffff;
+}
+
+.feature-grid,
+.portfolio-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.portfolio-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.feature-card,
+.portfolio-card,
+.about-card {
+  padding: 22px;
+}
+
+.feature-card,
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.feature-card h3,
+.portfolio-card h3 {
+  margin-top: 14px;
+}
+
+.feature-badge,
+.demo-badge {
+  display: inline-grid;
+  place-items: center;
+  width: fit-content;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.feature-badge {
+  width: 42px;
+}
+
+.portfolio-card p {
+  flex: 1;
+  color: var(--muted);
+}
+
+.portfolio-card .btn {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.about-section,
+.faq-section {
+  background: var(--bg);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 28px;
+  align-items: center;
+}
+
+.about-grid .section-heading {
+  margin-bottom: 0;
+}
+
+.about-grid .section-heading p {
+  color: var(--muted);
+}
+
+.about-card p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.about-card .btn {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-list details {
+  padding: 0;
+}
+
+.faq-list summary {
+  padding: 18px 20px;
+  color: var(--primary);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list p {
+  margin: 0;
+  padding: 0 20px 18px;
+  color: var(--muted);
 }
 
 .service-icon {
@@ -819,13 +939,16 @@ textarea:focus {
   }
 
   .hero-grid,
+  .about-grid,
   .config-layout,
   .contact-grid,
   .legal-band {
     grid-template-columns: 1fr;
   }
 
-  .services-grid {
+  .services-grid,
+  .feature-grid,
+  .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -845,6 +968,8 @@ textarea:focus {
 
   .hero-metrics,
   .services-grid,
+  .feature-grid,
+  .portfolio-grid,
   .option-grid,
   .form-row {
     grid-template-columns: 1fr;
