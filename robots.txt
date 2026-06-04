@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orellanatech38.netlify.app/sitemap.xml
