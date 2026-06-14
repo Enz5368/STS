@@ -388,6 +388,11 @@ a.service-card:hover {
   font-weight: 800;
 }
 
+.example-service-card .service-icon {
+  background: transparent;
+  box-shadow: 0 12px 22px rgba(12, 59, 102, 0.16);
+}
+
 .service-page {
   background: #ffffff;
 }
