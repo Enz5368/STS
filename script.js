@@ -11,7 +11,7 @@ const prices = {
   ecranTelephone: 40,
   applicationLocale: 300,
   siteWebFormulaire: 290,
-  carteVisite: 20
+  carteVisite: 25
 };
 
 const businessCardPrices = {
