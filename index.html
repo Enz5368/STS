@@ -82,54 +82,69 @@
           <button class="service-tab" type="button" role="tab" aria-selected="false" data-sector="all">Tout voir</button>
         </div>
         <div class="services-grid">
-          <article class="service-card" data-sector="informatique">
-            <div class="service-icon">PC</div>
+          <a class="service-card" href="services/reparation-optimisation-pc-mac.html" data-sector="informatique">
+            <img class="service-icon" src="assets/icon-pc-repair.svg" alt="">
             <h3>Réparation / optimisation PC & Mac</h3>
             <p class="price">À partir de 30 €</p>
             <p>Diagnostic, système lent, Windows, macOS, pilotes, SSD/RAM.</p>
-          </article>
-          <article class="service-card" data-sector="informatique">
-            <div class="service-icon">MB</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/montage-pc-mac.html" data-sector="informatique">
+            <img class="service-icon" src="assets/icon-pc-build.svg" alt="">
             <h3>Montage PC & Mac</h3>
             <p class="price">À partir de 100 €</p>
             <p>Montage PC fixe, choix composants, Windows, Mac, drivers, tests.</p>
-          </article>
-          <article class="service-card" data-sector="informatique">
-            <div class="service-icon">SET</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/setup-bureau-teletravail-gaming.html" data-sector="informatique">
+            <img class="service-icon" src="assets/icon-setup.svg" alt="">
             <h3>Setup bureau / télétravail / gaming</h3>
             <p class="price">À partir de 80 €</p>
             <p>Double écran, clavier, souris, webcam, rangement câbles, confort.</p>
-          </article>
-          <article class="service-card" data-sector="informatique">
-            <div class="service-icon">NAS</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/nas-sauvegarde.html" data-sector="informatique">
+            <img class="service-icon" src="assets/icon-nas.svg" alt="">
             <h3>NAS / sauvegarde</h3>
             <p class="price">À partir de 120 €</p>
             <p>NAS, photos, documents, sauvegarde PC, dossiers partagés.</p>
-          </article>
-          <article class="service-card" data-sector="informatique">
-            <div class="service-icon">TEL</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/remplacement-ecran-telephone.html" data-sector="informatique">
+            <img class="service-icon" src="assets/icon-phone.svg" alt="">
             <h3>Remplacement écran téléphone</h3>
             <p class="price">À partir de 40 € + pièce</p>
             <p>Écran cassé, aide au choix de la pièce, test tactile/affichage.</p>
-          </article>
-          <article class="service-card" data-sector="web">
-            <div class="service-icon">WEB</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/site-web-personnalise-formulaire.html" data-sector="web">
+            <img class="service-icon" src="assets/icon-web.svg" alt="">
             <h3>Site web personnalisé avec formulaire</h3>
             <p class="price">À partir de 290 €</p>
             <p>Site vitrine simple, page de présentation, formulaire de contact ou demande de devis, intégration mobile et mise en ligne.</p>
-          </article>
-          <article class="service-card" data-sector="outils">
-            <div class="service-icon">APP</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/site-web-personnalise-formulaire.html#cartes-visite" data-sector="web">
+            <img class="service-icon" src="assets/icon-business-card.svg" alt="">
+            <h3>Cartes de visite + design</h3>
+            <p class="price">À partir de 20 €</p>
+            <p>Design personnalisé de la carte et choix simple du format, de la finition et de la quantité.</p>
+            <span class="service-link">Voir les tarifs</span>
+          </a>
+          <a class="service-card" href="services/logiciels-sur-mesure.html" data-sector="outils">
+            <img class="service-icon" src="assets/icon-software.svg" alt="">
             <h3>Logiciels sur mesure</h3>
             <p class="price">À partir de 300 €</p>
             <p>Création de logiciels personnalisés, automatisation Excel, gestion simple, suivi client, gestion de stock, formulaires, tableaux de bord, calculs automatiques.</p>
-          </article>
-          <article class="service-card" data-sector="connecte">
-            <div class="service-icon">IoT</div>
+            <span class="service-link">Voir la page du service</span>
+          </a>
+          <a class="service-card" href="services/domotique-legere.html" data-sector="connecte">
+            <img class="service-icon" src="assets/icon-smart-home.svg" alt="">
             <h3>Domotique légère</h3>
             <p class="price">À partir de 80 €</p>
             <p>Lampes, prises et volets commandables avec application; Google Home, Alexa, Home Assistant.</p>
-          </article>
+            <span class="service-link">Voir la page du service</span>
+          </a>
         </div>
         <p class="service-area-note">Services physiques disponibles sur Grenoble. En dehors de Grenoble, un supplément kilométrique peut être appliqué selon la distance.</p>
       </div>
@@ -298,9 +313,8 @@
           </div>
         </div>
 
-        <form id="quote-form" class="contact-form" action="https://formsubmit.co/orellanatech37@gmail.com" method="POST">
+        <form id="quote-form" class="contact-form" action="https://formspree.io/f/mjgdjjyv" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle demande OrellanaTech">
-          <input type="hidden" name="_captcha" value="false">
           <div class="form-heading">
             <h3>Décrire mon besoin</h3>
           </div>

@@ -39,16 +39,14 @@ Modifier une valeur mettra a jour les estimations affichees dans le panier.
 Le formulaire est deja prepare pour Formspree dans `index.html` :
 
 ```html
-action="https://formspree.io/f/REMPLACER_PAR_MON_ID"
+action="https://formspree.io/f/mjgdjjyv"
 ```
 
 Etapes :
 
-1. Creer un compte sur Formspree.
-2. Creer un nouveau formulaire.
-3. Copier l'URL fournie par Formspree.
-4. Remplacer `https://formspree.io/f/REMPLACER_PAR_MON_ID` par cette URL.
-5. Tester un envoi depuis le site.
+1. Verifier que le formulaire Formspree est actif.
+2. Tester un envoi depuis le site.
+3. Confirmer l'adresse email dans Formspree si la plateforme le demande.
 
 Le champ cache `recapitulatif_panier` est rempli automatiquement par `script.js` avant l'envoi.
 

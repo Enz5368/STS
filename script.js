@@ -10,7 +10,53 @@ const prices = {
   domotiqueLegere: 80,
   ecranTelephone: 40,
   applicationLocale: 300,
-  siteWebFormulaire: 290
+  siteWebFormulaire: 290,
+  carteVisite: 20
+};
+
+const businessCardPrices = {
+  "Slim 85 x 40 mm - Aucun(e) - 100 cartes": 20,
+  "Slim 85 x 40 mm - Aucun(e) - 250 cartes": 25,
+  "Slim 85 x 40 mm - Aucun(e) - 500 cartes": 30,
+  "Slim 85 x 40 mm - Aucun(e) - 1000 cartes": 50,
+  "Slim 85 x 40 mm - Aucun(e) - 1500 cartes": 80,
+  "Slim 85 x 40 mm - Aucun(e) - 2000 cartes": 100,
+  "Standard 85 x 55 mm - Aucun(e) - 100 cartes": 20,
+  "Standard 85 x 55 mm - Aucun(e) - 250 cartes": 25,
+  "Standard 85 x 55 mm - Aucun(e) - 500 cartes": 30,
+  "Standard 85 x 55 mm - Aucun(e) - 1000 cartes": 50,
+  "Standard 85 x 55 mm - Aucun(e) - 1500 cartes": 80,
+  "Standard 85 x 55 mm - Aucun(e) - 2000 cartes": 100,
+  "Standard 85 x 55 mm - Effet metallise - 100 cartes": 30,
+  "Standard 85 x 55 mm - Effet metallise - 250 cartes": 40,
+  "Standard 85 x 55 mm - Effet metallise - 500 cartes": 60,
+  "Standard 85 x 55 mm - Effet metallise - 1000 cartes": 70,
+  "Standard 85 x 55 mm - Effet metallise - 1500 cartes": 110,
+  "Standard 85 x 55 mm - Effet metallise - 2000 cartes": 140,
+  "Standard 85 x 55 mm - Vernis selectif - 100 cartes": 30,
+  "Standard 85 x 55 mm - Vernis selectif - 250 cartes": 40,
+  "Standard 85 x 55 mm - Vernis selectif - 500 cartes": 60,
+  "Standard 85 x 55 mm - Vernis selectif - 1000 cartes": 80,
+  "Standard 85 x 55 mm - Vernis selectif - 1500 cartes": 120,
+  "Standard 85 x 55 mm - Vernis selectif - 2000 cartes": 160,
+  "Carre 65 x 65 mm - Aucun(e) - 100 cartes": 30,
+  "Carre 65 x 65 mm - Aucun(e) - 250 cartes": 25,
+  "Carre 65 x 65 mm - Aucun(e) - 500 cartes": 60,
+  "Carre 65 x 65 mm - Aucun(e) - 1000 cartes": 80,
+  "Carre 65 x 65 mm - Aucun(e) - 1500 cartes": 120,
+  "Carre 65 x 65 mm - Aucun(e) - 2000 cartes": 160,
+  "Carre 65 x 65 mm - Effet metallise - 100 cartes": 40,
+  "Carre 65 x 65 mm - Effet metallise - 250 cartes": 60,
+  "Carre 65 x 65 mm - Effet metallise - 500 cartes": 80,
+  "Carre 65 x 65 mm - Effet metallise - 1000 cartes": 110,
+  "Carre 65 x 65 mm - Effet metallise - 1500 cartes": 160,
+  "Carre 65 x 65 mm - Effet metallise - 2000 cartes": 210,
+  "Carre 65 x 65 mm - Vernis selectif - 100 cartes": 40,
+  "Carre 65 x 65 mm - Vernis selectif - 250 cartes": 60,
+  "Carre 65 x 65 mm - Vernis selectif - 500 cartes": 80,
+  "Carre 65 x 65 mm - Vernis selectif - 1000 cartes": 110,
+  "Carre 65 x 65 mm - Vernis selectif - 1500 cartes": 160,
+  "Carre 65 x 65 mm - Vernis selectif - 2000 cartes": 210
 };
 
 const categories = {
@@ -248,10 +294,42 @@ const categories = {
         options: ["290 à 500 \u20ac", "500 à 1000 \u20ac", "1000 à 2000 \u20ac", "Plus de 2000 \u20ac", "Je veux d'abord estimer"]
       }
     ]
+  },
+  cartesVisite: {
+    label: "Cartes de visite + design",
+    basePrice: prices.carteVisite,
+    questions: [
+      {
+        id: "formatQuantite",
+        title: "Format / finition et quantite",
+        type: "radio",
+        options: Object.keys(businessCardPrices)
+      },
+      {
+        id: "orientation",
+        title: "Orientation",
+        type: "radio",
+        options: ["Horizontale", "Verticale"]
+      },
+      {
+        id: "design",
+        title: "Design de la carte",
+        type: "radio",
+        options: ["Creation complete", "J'ai deja une idee", "J'ai deja un logo", "Adapter un design existant"]
+      },
+      {
+        id: "budget",
+        title: "Budget",
+        type: "radio",
+        options: ["Prix affiche OK", "Je veux d'abord valider le design", "Je veux comparer plusieurs quantites"]
+      }
+    ]
   }
 };
 
 let cart = [];
+const cartStorageKey = "orellanatech-cart";
+const pendingCartStorageKey = "orellanatech-pending-cart-item";
 
 const categorySelect = document.querySelector("#category-select");
 const questionsContainer = document.querySelector("#dynamic-questions");
@@ -273,6 +351,25 @@ function formatPrice(value) {
   return `${value} \u20ac`;
 }
 
+function loadCart() {
+  try {
+    const savedCart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+    cart = Array.isArray(savedCart) ? savedCart : [];
+
+    const pendingItem = JSON.parse(localStorage.getItem(pendingCartStorageKey) || "null");
+    if (pendingItem) {
+      cart.push({ ...pendingItem, id: Date.now() });
+      localStorage.removeItem(pendingCartStorageKey);
+    }
+  } catch (error) {
+    cart = [];
+  }
+}
+
+function saveCart() {
+  localStorage.setItem(cartStorageKey, JSON.stringify(cart));
+}
+
 function initCategories() {
   Object.entries(categories).forEach(([key, category]) => {
     const option = document.createElement("option");
@@ -290,6 +387,11 @@ function renderQuestions() {
   configMessage.className = "form-message";
 
   if (!category) {
+    return;
+  }
+
+  if (selectedKey === "cartesVisite") {
+    renderBusinessCardConfigurator();
     return;
   }
 
@@ -331,6 +433,173 @@ function renderQuestions() {
   });
 }
 
+function createHiddenChoice(name, value) {
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.name = name;
+  input.value = value;
+  input.checked = true;
+  input.hidden = true;
+  questionsContainer.appendChild(input);
+  return input;
+}
+
+function renderBusinessCardConfigurator() {
+  const state = {
+    format: "Standard 85 x 55 mm",
+    finish: "Aucun(e)",
+    orientation: "Horizontale",
+    quantity: "250",
+    design: "Creation complete",
+    budget: "Prix affiche OK"
+  };
+
+  const inputs = {
+    formatQuantite: createHiddenChoice("formatQuantite", ""),
+    orientation: createHiddenChoice("orientation", state.orientation),
+    design: createHiddenChoice("design", state.design),
+    budget: createHiddenChoice("budget", state.budget)
+  };
+
+  const picker = document.createElement("div");
+  picker.className = "business-card-picker compact-picker";
+  picker.innerHTML = `
+    <div class="picker-panel">
+      <div class="picker-group">
+        <h3>Format</h3>
+        <div class="picker-options picker-options-three">
+          <button class="picker-option is-selected" type="button" data-format="Standard 85 x 55 mm"><span class="mini-card standard-card"></span><strong>Standard</strong><span>85 x 55 mm</span></button>
+          <button class="picker-option" type="button" data-format="Carre 65 x 65 mm"><span class="mini-card square-card"></span><strong>Carre</strong><span>65 x 65 mm</span></button>
+          <button class="picker-option" type="button" data-format="Slim 85 x 40 mm"><span class="mini-card slim-card"></span><strong>Slim</strong><span>85 x 40 mm</span></button>
+        </div>
+      </div>
+      <div class="picker-group">
+        <h3>Finition</h3>
+        <div class="picker-options picker-options-three">
+          <button class="picker-option finish-option is-selected" type="button" data-finish="Aucun(e)"><span class="finish-preview finish-none"></span><strong>Aucun(e)</strong><span>prix slim</span></button>
+          <button class="picker-option finish-option" type="button" data-finish="Effet metallise"><span class="finish-preview finish-metal"></span><strong>Effet metallise</strong><span>rendu premium</span></button>
+          <button class="picker-option finish-option" type="button" data-finish="Vernis selectif"><span class="finish-preview finish-varnish"></span><strong>Vernis selectif</strong><span>prix affiche</span></button>
+        </div>
+      </div>
+      <div class="picker-group">
+        <h3>Orientation</h3>
+        <div class="segmented-options">
+          <button class="segment-option" type="button" data-orientation="Verticale">Verticale</button>
+          <button class="segment-option is-selected" type="button" data-orientation="Horizontale">Horizontale</button>
+        </div>
+      </div>
+      <div class="picker-group">
+        <label class="field-label" for="home-card-quantity">Quantite</label>
+        <select id="home-card-quantity">
+          <option value="100">100 cartes</option>
+          <option value="250" selected>250 cartes</option>
+          <option value="500">500 cartes</option>
+          <option value="1000">1000 cartes</option>
+          <option value="1500">1500 cartes</option>
+          <option value="2000">2000 cartes</option>
+        </select>
+      </div>
+      <div class="picker-group">
+        <h3>Design de la carte</h3>
+        <div class="segmented-options">
+          <button class="segment-option is-selected" type="button" data-design="Creation complete">Creation complete</button>
+          <button class="segment-option" type="button" data-design="J'ai deja un logo">J'ai deja un logo</button>
+        </div>
+      </div>
+    </div>
+    <aside class="picker-summary">
+      <div class="business-card-preview" aria-hidden="true">
+        <img class="preview-logo" src="assets/icon-business-card.svg" alt="">
+        <div><strong>Votre nom</strong><span>Carte de visite</span></div>
+      </div>
+      <p class="eyebrow">Selection</p>
+      <h3 id="home-card-choice"></h3>
+      <p id="home-card-details"></p>
+      <p class="price" id="home-card-total"></p>
+    </aside>
+  `;
+  questionsContainer.appendChild(picker);
+
+  const choice = picker.querySelector("#home-card-choice");
+  const details = picker.querySelector("#home-card-details");
+  const total = picker.querySelector("#home-card-total");
+  const quantity = picker.querySelector("#home-card-quantity");
+
+  function selectButton(button, selector) {
+    button.closest(selector).querySelectorAll("button").forEach((item) => item.classList.remove("is-selected"));
+    button.classList.add("is-selected");
+  }
+
+  function updateCardInputs() {
+    const isSlim = state.format === "Slim 85 x 40 mm";
+
+    picker.querySelectorAll("[data-finish]").forEach((button) => {
+      const disabled = isSlim && button.dataset.finish !== "Aucun(e)";
+      button.disabled = disabled;
+      button.classList.toggle("is-disabled", disabled);
+    });
+
+    if (isSlim && state.finish !== "Aucun(e)") {
+      state.finish = "Aucun(e)";
+      picker.querySelectorAll("[data-finish]").forEach((button) => {
+        button.classList.toggle("is-selected", button.dataset.finish === "Aucun(e)");
+      });
+    }
+
+    const option = `${state.format} - ${state.finish} - ${state.quantity} cartes`;
+    const price = businessCardPrices[option];
+    const isQuote = price === undefined;
+
+    inputs.formatQuantite.value = isQuote ? option : option;
+    inputs.orientation.value = state.orientation;
+    inputs.design.value = state.design;
+    inputs.budget.value = state.budget;
+
+    choice.textContent = `${state.format} - ${state.finish}`;
+    details.textContent = `${state.quantity} cartes - ${state.orientation}`;
+    total.textContent = formatPrice(price || 0);
+  }
+
+  picker.querySelectorAll("[data-format]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.format = button.dataset.format;
+      selectButton(button, ".picker-options");
+      updateCardInputs();
+    });
+  });
+
+  picker.querySelectorAll("[data-finish]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.finish = button.dataset.finish;
+      selectButton(button, ".picker-options");
+      updateCardInputs();
+    });
+  });
+
+  picker.querySelectorAll("[data-orientation]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.orientation = button.dataset.orientation;
+      selectButton(button, ".segmented-options");
+      updateCardInputs();
+    });
+  });
+
+  picker.querySelectorAll("[data-design]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.design = button.dataset.design;
+      selectButton(button, ".segmented-options");
+      updateCardInputs();
+    });
+  });
+
+  quantity.addEventListener("change", () => {
+    state.quantity = quantity.value;
+    updateCardInputs();
+  });
+
+  updateCardInputs();
+}
+
 function getSelectedValues(question) {
   const checkedInputs = questionsContainer.querySelectorAll(`input[name="${question.id}"]:checked`);
   return Array.from(checkedInputs).map((input) => input.value);
@@ -354,6 +623,11 @@ function estimateCategoryPrice(categoryKey, selections) {
       return prices.reinstallWindows;
     }
     return prices.diagnosticPc;
+  }
+
+  if (categoryKey === "cartesVisite") {
+    const selectedOption = selections.formatQuantite?.[0] || "";
+    return businessCardPrices[selectedOption] || categories[categoryKey].basePrice;
   }
 
   return categories[categoryKey].basePrice;
@@ -389,13 +663,17 @@ function addToCart() {
   }
 
   const price = estimateCategoryPrice(selectedKey, selections);
+  const selectedBusinessCard = selections.formatQuantite?.[0] || "";
+  const isBusinessCardQuote = false;
+
   cart.push({
     id: Date.now(),
     categoryKey: selectedKey,
     category: category.label,
     selections,
     budget: getBudgetFromSelections(selections),
-    price
+    price: isBusinessCardQuote ? 0 : price,
+    priceLabel: ""
   });
 
   renderCart();
@@ -447,7 +725,7 @@ function renderCart() {
 
     const price = document.createElement("span");
     price.className = "cart-price";
-    price.textContent = `Prestation estimee : ${formatPrice(item.price)}`;
+    price.textContent = `Prestation estimee : ${item.priceLabel || formatPrice(item.price)}`;
     article.appendChild(price);
 
     cartItems.appendChild(article);
@@ -456,6 +734,7 @@ function renderCart() {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
   cartTotal.textContent = formatPrice(total);
   cartSummaryInput.value = buildCartSummary();
+  saveCart();
 }
 
 function selectionsToText(selections) {
@@ -481,6 +760,9 @@ function labelFromKey(key) {
     besoinPrincipal: "Besoin principal",
     utilisateur: "Utilisateur",
     format: "Format souhaite",
+    formatQuantite: "Format / quantite",
+    orientation: "Orientation",
+    design: "Design",
     pages: "Pages",
     formulaire: "Formulaire"
   };
@@ -508,7 +790,7 @@ function buildCartSummary() {
       `Prestation ${index + 1}: ${item.category}`,
       `Options: ${selectionsToText(item.selections)}`,
       `Budget indique: ${item.budget}`,
-      `Prix estime: ${formatPrice(item.price)}`
+      `Prix estime: ${item.priceLabel || formatPrice(item.price)}`
     ].join("\n");
   });
 
@@ -619,6 +901,7 @@ async function handleCopyContact(button) {
   }
 }
 
+loadCart();
 initCategories();
 renderCart();
 filterServices("informatique");
