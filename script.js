@@ -61,20 +61,20 @@ const businessCardPrices = {
 
 const categories = {
   reparation: {
-    label: "Reparation PC",
+    label: "Réparation PC",
     basePrice: prices.diagnosticPc,
     questions: [
       {
         id: "probleme",
-        title: "Probleme",
+        title: "Problème",
         type: "radio",
-        options: ["PC lent", "Ne demarre pas", "Probleme Windows", "Virus / pubs", "Bruit / chauffe", "Ecran bleu", "Autre"]
+        options: ["PC Lent", "Ne Démarre Pas", "Problème Windows", "Virus / Pubs", "Bruit / Chauffe", "Écran Bleu", "Autre"]
       },
       {
         id: "budget",
-        title: "Budget reparation",
+        title: "Budget Réparation",
         type: "radio",
-        options: ["Moins de 30 \u20ac", "30 à 60 \u20ac", "60 à 100 \u20ac", "Plus de 100 \u20ac", "Je veux d'abord un diagnostic"]
+        options: ["Moins De 30 \u20ac", "30 À 60 \u20ac", "60 À 100 \u20ac", "Plus De 100 \u20ac", "Je Veux D'Abord Un Diagnostic"]
       }
     ]
   },
@@ -84,27 +84,27 @@ const categories = {
     questions: [
       {
         id: "utilisation",
-        title: "Utilisation principale",
+        title: "Utilisation Principale",
         type: "radio",
-        options: ["Bureautique", "Etudes", "Gaming", "Streaming", "Montage video", "Programmation", "Dessin / 3D", "Musique", "Usage familial"]
+        options: ["Bureautique", "Études", "Gaming", "Streaming", "Montage Vidéo", "Programmation", "Dessin / 3D", "Musique", "Usage Familial"]
       },
       {
         id: "budget",
-        title: "Budget materiel",
+        title: "Budget Matériel",
         type: "radio",
-        options: ["Moins de 400 \u20ac", "400 à 600 \u20ac", "600 à 800 \u20ac", "800 à 1000 \u20ac", "1000 à 1500 \u20ac", "Plus de 1500 \u20ac", "Je ne sais pas"]
+        options: ["Moins De 400 \u20ac", "400 À 600 \u20ac", "600 À 800 \u20ac", "800 À 1000 \u20ac", "1000 À 1500 \u20ac", "Plus De 1500 \u20ac", "Je Ne Sais Pas"]
       },
       {
         id: "materiel",
-        title: "Materiel deja possede",
+        title: "Matériel Déjà Possédé",
         type: "checkbox",
-        options: ["Ecran", "Clavier/souris", "Boitier", "Alimentation", "Carte graphique", "Stockage", "Rien"]
+        options: ["Écran", "Clavier/Souris", "Boîtier", "Alimentation", "Carte Graphique", "Stockage", "Rien"]
       },
       {
         id: "besoin",
         title: "Besoin",
         type: "radio",
-        options: ["Conseil composants", "Montage uniquement", "Montage + Windows + drivers", "Montage + installation complete"]
+        options: ["Conseil Composants", "Montage Uniquement", "Montage + Windows + Drivers", "Montage + Installation Complète"]
       }
     ]
   },
@@ -116,97 +116,97 @@ const categories = {
         id: "objectif",
         title: "Objectif",
         type: "radio",
-        options: ["Accelerer le PC", "Ajouter du stockage", "Ameliorer les performances", "Remplacer un ancien disque"]
+        options: ["Accélérer Le PC", "Ajouter Du Stockage", "Améliorer Les Performances", "Remplacer Un Ancien Disque"]
       },
       {
         id: "piece",
-        title: "Le client a deja la piece",
+        title: "Le Client A Déjà La Pièce",
         type: "radio",
-        options: ["Oui", "Non", "Je veux un conseil"]
+        options: ["Oui", "Non", "Je Veux Un Conseil"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "Plus de 100 \u20ac", "Je ne sais pas"]
+        options: ["Moins De 50 \u20ac", "50 À 100 \u20ac", "Plus De 100 \u20ac", "Je Ne Sais Pas"]
       }
     ]
   },
   setup: {
-    label: "Setup bureau / teletravail / gaming",
+    label: "Setup Bureau / Télétravail / Gaming",
     basePrice: prices.setupSimple,
     questions: [
       {
         id: "type",
-        title: "Type de setup",
+        title: "Type De Setup",
         type: "radio",
-        options: ["Bureau", "Teletravail", "Etudiant", "Gaming", "Mixte"]
+        options: ["Bureau", "Télétravail", "Étudiant", "Gaming", "Mixte"]
       },
       {
         id: "besoins",
         title: "Besoins",
         type: "checkbox",
-        options: ["Double ecran", "Webcam", "Clavier/souris", "Rangement cables", "Installation logiciels", "Optimisation Windows", "Imprimante/peripheriques"]
+        options: ["Double Écran", "Webcam", "Clavier/Souris", "Rangement Câbles", "Installation Logiciels", "Optimisation Windows", "Imprimante/Périphériques"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "100 à 250 \u20ac", "Plus de 250 \u20ac"]
+        options: ["Moins De 50 \u20ac", "50 À 100 \u20ac", "100 À 250 \u20ac", "Plus De 250 \u20ac"]
       }
     ]
   },
   nas: {
-    label: "NAS / sauvegarde",
+    label: "NAS / Sauvegarde",
     basePrice: prices.nasSimple,
     questions: [
       {
         id: "objectif",
         title: "Objectif",
         type: "checkbox",
-        options: ["Sauvegarde photos", "Sauvegarde documents", "Stockage familial", "Partage de fichiers", "Sauvegarde PC", "Conseil achat NAS"]
+        options: ["Sauvegarde Photos", "Sauvegarde Documents", "Stockage Familial", "Partage De Fichiers", "Sauvegarde PC", "Conseil Achat NAS"]
       },
       {
         id: "materiel",
-        title: "Materiel deja possede",
+        title: "Matériel Déjà Possédé",
         type: "radio",
-        options: ["Oui", "Non", "Je veux un conseil"]
+        options: ["Oui", "Non", "Je Veux Un Conseil"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 100 \u20ac", "100 à 250 \u20ac", "250 à 500 \u20ac", "Plus de 500 \u20ac"]
+        options: ["Moins De 100 \u20ac", "100 À 250 \u20ac", "250 À 500 \u20ac", "Plus De 500 \u20ac"]
       }
     ]
   },
   domotique: {
-    label: "Domotique legere",
+    label: "Domotique Légère",
     basePrice: prices.domotiqueLegere,
-    note: "Prestation limitee a la configuration d'objets connectes compatibles, sans modification de l'installation electrique fixe.",
+    note: "Prestation Limitée À La Configuration D'Objets Connectés Compatibles, Sans Modification De L'Installation Électrique Fixe.",
     questions: [
       {
         id: "equipement",
-        title: "Equipement a configurer",
+        title: "Équipement À Configurer",
         type: "checkbox",
-        options: ["Lampe connectee", "Prise connectee", "Volet compatible application", "Assistant vocal", "Home Assistant", "Plusieurs appareils", "Je veux un conseil"]
+        options: ["Lampe Connectée", "Prise Connectée", "Volet Compatible Application", "Assistant Vocal", "Home Assistant", "Plusieurs Appareils", "Je Veux Un Conseil"]
       },
       {
         id: "objectif",
         title: "Objectif",
         type: "checkbox",
-        options: ["Controler depuis le telephone", "Programmer des horaires", "Scenario matin/soir", "Regrouper dans une seule application", "Ajouter Google Home / Alexa"]
+        options: ["Contrôler Depuis Le Téléphone", "Programmer Des Horaires", "Scénario Matin/Soir", "Regrouper Dans Une Seule Application", "Ajouter Google Home / Alexa"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 \u20ac", "50 à 150 \u20ac", "150 à 300 \u20ac", "Plus de 300 \u20ac"]
+        options: ["Moins De 50 \u20ac", "50 À 150 \u20ac", "150 À 300 \u20ac", "Plus De 300 \u20ac"]
       }
     ]
   },
   telephone: {
-    label: "Remplacement ecran telephone",
+    label: "Remplacement Écran Téléphone",
     basePrice: prices.ecranTelephone,
     questions: [
       {
@@ -217,91 +217,91 @@ const categories = {
       },
       {
         id: "ecran",
-        title: "Le client a deja l'ecran",
+        title: "Le Client A Déjà L'Écran",
         type: "radio",
-        options: ["Oui", "Non", "Je veux un conseil"]
+        options: ["Oui", "Non", "Je Veux Un Conseil"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Moins de 50 \u20ac", "50 à 100 \u20ac", "Plus de 100 \u20ac", "Je veux savoir si ca vaut le coup"]
+        options: ["Moins De 50 \u20ac", "50 À 100 \u20ac", "Plus De 100 \u20ac", "Je Veux Savoir Si Ça Vaut Le Coup"]
       }
     ]
   },
   applicationLocale: {
-    label: "Logiciel sur mesure",
+    label: "Logiciel Sur Mesure",
     basePrice: prices.applicationLocale,
     questions: [
       {
         id: "besoinPrincipal",
-        title: "Besoin principal",
+        title: "Besoin Principal",
         type: "radio",
-        options: ["Gestion de stock", "Suivi client", "Automatisation Excel", "Formulaire avec export", "Logiciel de devis/facture simple", "Tableau de bord", "Calcul automatique", "Organisation de fichiers", "Autre"]
+        options: ["Gestion De Stock", "Suivi Client", "Automatisation Excel", "Formulaire Avec Export", "Logiciel De Devis/Facture Simple", "Tableau De Bord", "Calcul Automatique", "Organisation De Fichiers", "Autre"]
       },
       {
         id: "utilisateur",
         title: "Utilisateur",
         type: "radio",
-        options: ["Particulier", "Etudiant", "Association", "Artisan", "Petit commerce", "Entreprise"]
+        options: ["Particulier", "Étudiant", "Association", "Artisan", "Petit Commerce", "Entreprise"]
       },
       {
         id: "format",
-        title: "Format souhaite",
+        title: "Format Souhaité",
         type: "radio",
-        options: ["Logiciel Windows local", "Fichier Excel automatise", "Script simple", "Tableau de bord", "Je veux un conseil"]
+        options: ["Logiciel Windows Local", "Fichier Excel Automatisé", "Script Simple", "Tableau De Bord", "Je Veux Un Conseil"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["300 à 500 \u20ac", "500 à 1000 \u20ac", "1000 à 2000 \u20ac", "Plus de 2000 \u20ac", "Je veux d'abord estimer"]
+        options: ["300 À 500 \u20ac", "500 À 1000 \u20ac", "1000 À 2000 \u20ac", "Plus De 2000 \u20ac", "Je Veux D'Abord Estimer"]
       }
     ]
   },
   siteWebFormulaire: {
-    label: "Site web personnalise avec formulaire",
+    label: "Site Web Personnalisé Avec Formulaire",
     basePrice: prices.siteWebFormulaire,
     questions: [
       {
         id: "besoinPrincipal",
-        title: "Besoin principal",
+        title: "Besoin Principal",
         type: "radio",
-        options: ["Site vitrine", "Page de presentation", "Formulaire de contact", "Formulaire de devis", "Refonte d'un site existant", "Je veux un conseil"]
+        options: ["Site Vitrine", "Page De Présentation", "Formulaire De Contact", "Formulaire De Devis", "Refonte D'Un Site Existant", "Je Veux Un Conseil"]
       },
       {
         id: "pages",
-        title: "Nombre de pages",
+        title: "Nombre De Pages",
         type: "radio",
-        options: ["1 page", "2 a 3 pages", "4 a 6 pages", "Plus de 6 pages", "Je ne sais pas"]
+        options: ["1 Page", "2 À 3 Pages", "4 À 6 Pages", "Plus De 6 Pages", "Je Ne Sais Pas"]
       },
       {
         id: "formulaire",
-        title: "Type de formulaire",
+        title: "Type De Formulaire",
         type: "checkbox",
-        options: ["Contact", "Demande de devis", "Reservation / rendez-vous", "Inscription", "Envoi vers email", "Je veux un conseil"]
+        options: ["Contact", "Demande De Devis", "Réservation / Rendez-Vous", "Inscription", "Envoi Vers Email", "Je Veux Un Conseil"]
       },
       {
         id: "utilisateur",
         title: "Utilisateur",
         type: "radio",
-        options: ["Particulier", "Association", "Artisan", "Petit commerce", "Entreprise"]
+        options: ["Particulier", "Association", "Artisan", "Petit Commerce", "Entreprise"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["290 à 500 \u20ac", "500 à 1000 \u20ac", "1000 à 2000 \u20ac", "Plus de 2000 \u20ac", "Je veux d'abord estimer"]
+        options: ["290 À 500 \u20ac", "500 À 1000 \u20ac", "1000 À 2000 \u20ac", "Plus De 2000 \u20ac", "Je Veux D'Abord Estimer"]
       }
     ]
   },
   cartesVisite: {
-    label: "Cartes de visite + design",
+    label: "Cartes De Visite + Design",
     basePrice: prices.carteVisite,
     questions: [
       {
         id: "formatQuantite",
-        title: "Format / finition et quantite",
+        title: "Format / Finition Et Quantité",
         type: "radio",
         options: Object.keys(businessCardPrices)
       },
@@ -313,15 +313,15 @@ const categories = {
       },
       {
         id: "design",
-        title: "Design de la carte",
+        title: "Design De La Carte",
         type: "radio",
-        options: ["Creation complete", "J'ai deja une idee", "J'ai deja un logo", "Adapter un design existant"]
+        options: ["Création Complète", "J'Ai Déjà Une Idée", "J'Ai Déjà Un Logo", "Adapter Un Design Existant"]
       },
       {
         id: "budget",
         title: "Budget",
         type: "radio",
-        options: ["Prix affiche OK", "Je veux d'abord valider le design", "Je veux comparer plusieurs quantites"]
+        options: ["Prix Affiché OK", "Je Veux D'Abord Valider Le Design", "Je Veux Comparer Plusieurs Quantités"]
       }
     ]
   }
@@ -451,8 +451,8 @@ function renderBusinessCardConfigurator() {
     finish: "Aucun(e)",
     orientation: "Horizontale",
     quantity: "250",
-    design: "Creation complete",
-    budget: "Prix affiche OK"
+    design: "Création Complète",
+    budget: "Prix Affiché OK"
   };
 
   const inputs = {
@@ -470,16 +470,16 @@ function renderBusinessCardConfigurator() {
         <h3>Format</h3>
         <div class="picker-options picker-options-three">
           <button class="picker-option is-selected" type="button" data-format="Standard 85 x 55 mm"><span class="mini-card standard-card"></span><strong>Standard</strong><span>85 x 55 mm</span></button>
-          <button class="picker-option" type="button" data-format="Carre 65 x 65 mm"><span class="mini-card square-card"></span><strong>Carre</strong><span>65 x 65 mm</span></button>
+          <button class="picker-option" type="button" data-format="Carre 65 x 65 mm"><span class="mini-card square-card"></span><strong>Carré</strong><span>65 x 65 mm</span></button>
           <button class="picker-option" type="button" data-format="Slim 85 x 40 mm"><span class="mini-card slim-card"></span><strong>Slim</strong><span>85 x 40 mm</span></button>
         </div>
       </div>
       <div class="picker-group">
         <h3>Finition</h3>
         <div class="picker-options picker-options-three">
-          <button class="picker-option finish-option is-selected" type="button" data-finish="Aucun(e)"><span class="finish-preview finish-none"></span><strong>Aucun(e)</strong><span>prix slim</span></button>
-          <button class="picker-option finish-option" type="button" data-finish="Effet metallise"><span class="finish-preview finish-metal"></span><strong>Effet metallise</strong><span>rendu premium</span></button>
-          <button class="picker-option finish-option" type="button" data-finish="Vernis selectif"><span class="finish-preview finish-varnish"></span><strong>Vernis selectif</strong><span>prix affiche</span></button>
+          <button class="picker-option finish-option is-selected" type="button" data-finish="Aucun(e)"><span class="finish-preview finish-none"></span><strong>Aucun(e)</strong><span>Prix Slim</span></button>
+          <button class="picker-option finish-option" type="button" data-finish="Effet metallise"><span class="finish-preview finish-metal"></span><strong>Effet Métallisé</strong><span>Rendu Premium</span></button>
+          <button class="picker-option finish-option" type="button" data-finish="Vernis selectif"><span class="finish-preview finish-varnish"></span><strong>Vernis Sélectif</strong><span>Prix Affiché</span></button>
         </div>
       </div>
       <div class="picker-group">
@@ -490,30 +490,30 @@ function renderBusinessCardConfigurator() {
         </div>
       </div>
       <div class="picker-group">
-        <label class="field-label" for="home-card-quantity">Quantite</label>
+        <label class="field-label" for="home-card-quantity">Quantité</label>
         <select id="home-card-quantity">
-          <option value="100">100 cartes</option>
-          <option value="250" selected>250 cartes</option>
-          <option value="500">500 cartes</option>
-          <option value="1000">1000 cartes</option>
-          <option value="1500">1500 cartes</option>
-          <option value="2000">2000 cartes</option>
+          <option value="100">100 Cartes</option>
+          <option value="250" selected>250 Cartes</option>
+          <option value="500">500 Cartes</option>
+          <option value="1000">1000 Cartes</option>
+          <option value="1500">1500 Cartes</option>
+          <option value="2000">2000 Cartes</option>
         </select>
       </div>
       <div class="picker-group">
-        <h3>Design de la carte</h3>
+        <h3>Design De La Carte</h3>
         <div class="segmented-options">
-          <button class="segment-option is-selected" type="button" data-design="Creation complete">Creation complete</button>
-          <button class="segment-option" type="button" data-design="J'ai deja un logo">J'ai deja un logo</button>
+          <button class="segment-option is-selected" type="button" data-design="Création Complète">Création Complète</button>
+          <button class="segment-option" type="button" data-design="J'ai Déjà Un Logo">J'Ai Déjà Un Logo</button>
         </div>
       </div>
     </div>
     <aside class="picker-summary">
       <div class="business-card-preview" aria-hidden="true">
         <img class="preview-logo" src="assets/icon-business-card.svg" alt="">
-        <div><strong>Votre nom</strong><span>Carte de visite</span></div>
+        <div><strong>Votre Nom</strong><span>Carte De Visite</span></div>
       </div>
-      <p class="eyebrow">Selection</p>
+      <p class="eyebrow">Sélection</p>
       <h3 id="home-card-choice"></h3>
       <p id="home-card-details"></p>
       <p class="price" id="home-card-total"></p>
@@ -557,7 +557,7 @@ function renderBusinessCardConfigurator() {
     inputs.budget.value = state.budget;
 
     choice.textContent = `${state.format} - ${state.finish}`;
-    details.textContent = `${state.quantity} cartes - ${state.orientation}`;
+    details.textContent = `${state.quantity} Cartes - ${state.orientation}`;
     total.textContent = formatPrice(price || 0);
   }
 
@@ -609,7 +609,7 @@ function getSelectedValues(question) {
 function estimateCategoryPrice(categoryKey, selections) {
   if (categoryKey === "montage") {
     const need = selections.besoin?.[0] || "";
-    if (need.includes("Windows") || need.includes("installation complete")) {
+    if (need.includes("Windows") || need.includes("Installation Complète")) {
       return prices.montageWindowsDrivers;
     }
     return prices.montagePc;
@@ -617,10 +617,10 @@ function estimateCategoryPrice(categoryKey, selections) {
 
   if (categoryKey === "reparation") {
     const problem = selections.probleme?.[0] || "";
-    if (problem === "PC lent") {
+    if (problem === "PC Lent") {
       return prices.optimisationPc;
     }
-    if (problem === "Probleme Windows" || problem === "Virus / pubs" || problem === "Ecran bleu") {
+    if (problem === "Problème Windows" || problem === "Virus / Pubs" || problem === "Écran Bleu") {
       return prices.reinstallWindows;
     }
     return prices.diagnosticPc;
@@ -635,7 +635,7 @@ function estimateCategoryPrice(categoryKey, selections) {
 }
 
 function getBudgetFromSelections(selections) {
-  return selections.budget?.[0] || "Non precise";
+  return selections.budget?.[0] || "Non Précisé";
 }
 
 function addToCart() {
@@ -643,7 +643,7 @@ function addToCart() {
   const category = categories[selectedKey];
 
   if (!category) {
-    showConfigMessage("Choisis une categorie avant d'ajouter une prestation.", "error");
+    showConfigMessage("Choisis Une Catégorie Avant D'Ajouter Une Prestation.", "error");
     return;
   }
 
@@ -659,7 +659,7 @@ function addToCart() {
   });
 
   if (missingQuestions.length > 0) {
-    showConfigMessage(`Complete les champs suivants : ${missingQuestions.join(", ")}.`, "error");
+    showConfigMessage(`Complète Les Champs Suivants : ${missingQuestions.join(", ")}.`, "error");
     return;
   }
 
@@ -678,7 +678,7 @@ function addToCart() {
   });
 
   renderCart();
-  showConfigMessage("Prestation ajoutee a la demande.", "success");
+  showConfigMessage("Prestation Ajoutée À La Demande.", "success");
 }
 
 function showConfigMessage(message, type) {
@@ -692,7 +692,7 @@ function renderCart() {
   if (cart.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty-cart";
-    empty.textContent = "Aucun service ajoute pour le moment.";
+    empty.textContent = "Aucun Service Ajouté Pour Le Moment.";
     cartItems.appendChild(empty);
   }
 
@@ -721,12 +721,12 @@ function renderCart() {
     article.appendChild(details);
 
     const budget = document.createElement("p");
-    budget.textContent = `Budget indique : ${item.budget}`;
+    budget.textContent = `Budget Indiqué : ${item.budget}`;
     article.appendChild(budget);
 
     const price = document.createElement("span");
     price.className = "cart-price";
-    price.textContent = `Prestation estimee : ${item.priceLabel || formatPrice(item.price)}`;
+    price.textContent = `Prestation Estimée : ${item.priceLabel || formatPrice(item.price)}`;
     article.appendChild(price);
 
     cartItems.appendChild(article);
@@ -746,22 +746,22 @@ function selectionsToText(selections) {
 
 function labelFromKey(key) {
   const labels = {
-    probleme: "Probleme",
+    probleme: "Problème",
     budget: "Budget",
     utilisation: "Utilisation",
-    materiel: "Materiel",
+    materiel: "Matériel",
     besoin: "Besoin",
     objectif: "Objectif",
-    piece: "Piece",
+    piece: "Pièce",
     type: "Type",
     besoins: "Besoins",
-    equipement: "Equipement",
+    equipement: "Équipement",
     marque: "Marque",
-    ecran: "Ecran",
-    besoinPrincipal: "Besoin principal",
+    ecran: "Écran",
+    besoinPrincipal: "Besoin Principal",
     utilisateur: "Utilisateur",
-    format: "Format souhaite",
-    formatQuantite: "Format / quantite",
+    format: "Format Souhaité",
+    formatQuantite: "Format / Quantité",
     orientation: "Orientation",
     design: "Design",
     pages: "Pages",
@@ -790,13 +790,13 @@ function buildCartSummary() {
     return [
       `Prestation ${index + 1}: ${item.category}`,
       `Options: ${selectionsToText(item.selections)}`,
-      `Budget indique: ${item.budget}`,
-      `Prix estime: ${item.priceLabel || formatPrice(item.price)}`
+      `Budget Indiqué: ${item.budget}`,
+      `Prix Estimé: ${item.priceLabel || formatPrice(item.price)}`
     ].join("\n");
   });
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
-  return `${lines.join("\n\n")}\n\nTotal estime: ${formatPrice(total)}`;
+  return `${lines.join("\n\n")}\n\nTotal Estimé: ${formatPrice(total)}`;
 }
 
 function validateForm(event) {
@@ -805,10 +805,10 @@ function validateForm(event) {
   cartSummaryInput.value = buildCartSummary();
 
   const requiredFields = [
-    { selector: "#first-name", label: "prenom" },
-    { selector: "#email", label: "email" },
-    { selector: "#phone", label: "telephone" },
-    { selector: "#city", label: "ville" }
+    { selector: "#first-name", label: "Prénom" },
+    { selector: "#email", label: "Email" },
+    { selector: "#phone", label: "Téléphone" },
+    { selector: "#city", label: "Ville" }
   ];
 
   const missing = requiredFields
@@ -817,13 +817,13 @@ function validateForm(event) {
 
   if (cart.length === 0) {
     event.preventDefault();
-    showFormError("Ajoute au moins une prestation dans ta demande avant l'envoi.");
+    showFormError("Ajoute Au Moins Une Prestation Dans Ta Demande Avant L'Envoi.");
     return;
   }
 
   if (missing.length > 0) {
     event.preventDefault();
-    showFormError(`Renseigne les champs obligatoires : ${missing.join(", ")}.`);
+    showFormError(`Renseigne Les Champs Obligatoires : ${missing.join(", ")}.`);
   }
 }
 
@@ -901,7 +901,7 @@ async function handleCopyContact(button) {
       }
     }, 1400);
   } catch (error) {
-    showFormError("Impossible de copier automatiquement. Selectionne le contact manuellement.");
+    showFormError("Impossible De Copier Automatiquement. Sélectionne Le Contact Manuellement.");
   }
 }
 
