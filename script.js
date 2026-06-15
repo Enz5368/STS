@@ -344,6 +344,7 @@ const configMessage = document.querySelector("#config-message");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector("#main-menu");
 const serviceTabs = document.querySelectorAll(".service-tab");
+const servicesGrid = document.querySelector(".services-grid");
 const serviceCards = document.querySelectorAll(".service-card[data-sector]");
 const copyButtons = document.querySelectorAll(".copy-contact");
 
@@ -842,8 +843,11 @@ function closeMenu() {
 }
 
 function filterServices(sector) {
+  servicesGrid.classList.toggle("show-web-examples", sector === "web");
+
   serviceCards.forEach((card) => {
-    const shouldShow = sector === "all" || card.dataset.sector === sector;
+    const isExample = card.classList.contains("example-service-card");
+    const shouldShow = isExample ? sector === "web" : sector === "all" || card.dataset.sector === sector;
     card.classList.toggle("hidden", !shouldShow);
   });
 }

@@ -391,7 +391,7 @@ a.service-card:hover {
 
 .example-service-card {
   position: relative;
-  display: grid !important;
+  display: none !important;
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 6px 12px;
   align-items: start;
@@ -399,6 +399,10 @@ a.service-card:hover {
   border-style: dashed;
   background: linear-gradient(180deg, #fffaf5, #ffffff);
   box-shadow: 0 8px 18px rgba(90, 52, 31, 0.05);
+}
+
+.services-grid.show-web-examples .example-service-card:not(.hidden) {
+  display: grid !important;
 }
 
 .example-service-card::before {
