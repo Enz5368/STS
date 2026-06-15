@@ -141,13 +141,13 @@ textarea {
 
 .btn-secondary {
   color: var(--primary);
-  background: #f4cfd0;
-  border: 1px solid rgba(244, 207, 208, 0.68);
+  background: #a7e7e5;
+  border: 1px solid rgba(167, 231, 229, 0.68);
   box-shadow: none;
 }
 
 .btn-secondary:hover {
-  background: #ecc1c3;
+  background: #8fdad8;
 }
 
 .btn-small {
