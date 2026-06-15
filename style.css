@@ -331,6 +331,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  align-items: start;
 }
 
 .service-card.hidden {
@@ -390,8 +391,14 @@ a.service-card:hover {
 
 .example-service-card {
   position: relative;
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 6px 12px;
+  align-items: start;
+  padding: 14px;
   border-style: dashed;
   background: linear-gradient(180deg, #fffaf5, #ffffff);
+  box-shadow: 0 8px 18px rgba(90, 52, 31, 0.05);
 }
 
 .example-service-card::before {
@@ -399,28 +406,51 @@ a.service-card:hover {
   display: inline-grid;
   place-items: center;
   width: fit-content;
-  min-height: 30px;
-  margin-bottom: 16px;
-  padding: 0 10px;
+  min-height: 24px;
+  margin-bottom: 4px;
+  padding: 0 8px;
   border-radius: var(--radius);
   background: var(--surface-soft);
   color: var(--primary);
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
+  grid-column: 1 / -1;
 }
 
 .example-service-card h3 {
-  font-size: 1rem;
+  grid-column: 2;
+  font-size: 0.96rem;
+}
+
+.example-service-card .price {
+  grid-column: 2;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.example-service-card p:not(.price) {
+  grid-column: 2;
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .example-service-card .service-link {
+  grid-column: 2;
+  margin-top: 2px;
   color: var(--teal-dark);
+  font-size: 0.88rem;
 }
 
 .example-service-card .service-icon {
+  grid-column: 1;
+  grid-row: 2 / span 4;
+  width: 42px;
+  height: 42px;
+  margin: 0;
   background: transparent;
-  box-shadow: 0 12px 22px rgba(90, 52, 31, 0.16);
+  box-shadow: 0 8px 16px rgba(90, 52, 31, 0.14);
 }
 
 .service-page {
