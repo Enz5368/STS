@@ -1,17 +1,17 @@
 :root {
-  --bg: #f5f8fb;
+  --bg: #f7f2ec;
   --surface: #ffffff;
-  --surface-soft: #eaf7f8;
-  --ink: #102033;
-  --muted: #5b6b7d;
-  --line: #d9e4ec;
-  --primary: #0c3b66;
-  --primary-strong: #072a4b;
-  --teal: #13a6a1;
-  --teal-dark: #087a7a;
-  --warning: #9b5c00;
+  --surface-soft: #f2e5d7;
+  --ink: #24160f;
+  --muted: #6f5b4c;
+  --line: #e1d1c2;
+  --primary: #5a341f;
+  --primary-strong: #2d1a10;
+  --teal: #a4612d;
+  --teal-dark: #7a421d;
+  --warning: #a36a22;
   --danger: #b42318;
-  --shadow: 0 18px 50px rgba(12, 59, 102, 0.12);
+  --shadow: 0 18px 50px rgba(90, 52, 31, 0.14);
   --radius: 8px;
 }
 
@@ -132,7 +132,7 @@ textarea {
   color: #ffffff;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(19, 166, 161, 0.2);
+  box-shadow: 0 10px 20px rgba(164, 97, 45, 0.22);
 }
 
 .btn:hover {
@@ -162,7 +162,7 @@ textarea {
 .hero {
   padding: 58px 0 46px;
   background:
-    linear-gradient(135deg, rgba(12, 59, 102, 0.98), rgba(8, 122, 122, 0.92)),
+    linear-gradient(135deg, rgba(45, 26, 16, 0.98), rgba(122, 66, 29, 0.92)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
   color: #ffffff;
 }
@@ -184,7 +184,7 @@ textarea {
 }
 
 .hero .eyebrow {
-  color: #9cf1ed;
+  color: #ffd9a8;
 }
 
 h1,
@@ -253,7 +253,7 @@ h3 {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #7bf1a8;
+  background: #f6c36f;
 }
 
 .hero-metrics {
@@ -363,7 +363,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  box-shadow: 0 10px 28px rgba(90, 52, 31, 0.07);
 }
 
 .service-card {
@@ -378,7 +378,7 @@ a.service-card {
 a.service-card:hover {
   border-color: var(--teal);
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(12, 59, 102, 0.1);
+  box-shadow: 0 16px 34px rgba(90, 52, 31, 0.12);
 }
 
 .service-link {
@@ -388,9 +388,39 @@ a.service-card:hover {
   font-weight: 800;
 }
 
+.example-service-card {
+  position: relative;
+  border-style: dashed;
+  background: linear-gradient(180deg, #fffaf5, #ffffff);
+}
+
+.example-service-card::before {
+  content: "Exemple";
+  display: inline-grid;
+  place-items: center;
+  width: fit-content;
+  min-height: 30px;
+  margin-bottom: 16px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.example-service-card h3 {
+  font-size: 1rem;
+}
+
+.example-service-card .service-link {
+  color: var(--teal-dark);
+}
+
 .example-service-card .service-icon {
   background: transparent;
-  box-shadow: 0 12px 22px rgba(12, 59, 102, 0.16);
+  box-shadow: 0 12px 22px rgba(90, 52, 31, 0.16);
 }
 
 .service-page {
@@ -400,7 +430,7 @@ a.service-card:hover {
 .service-detail-hero {
   padding: 54px 0;
   background:
-    linear-gradient(135deg, rgba(12, 59, 102, 0.98), rgba(8, 122, 122, 0.92)),
+    linear-gradient(135deg, rgba(45, 26, 16, 0.98), rgba(122, 66, 29, 0.92)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
   color: #ffffff;
 }
@@ -413,7 +443,7 @@ a.service-card:hover {
 }
 
 .service-detail-hero .eyebrow {
-  color: #9cf1ed;
+  color: #ffd9a8;
 }
 
 .service-detail-hero .service-detail-grid > div > p:not(.eyebrow) {
@@ -430,7 +460,7 @@ a.service-card:hover {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  box-shadow: 0 10px 28px rgba(90, 52, 31, 0.07);
 }
 
 .service-summary-card {
@@ -640,7 +670,7 @@ a.service-card:hover {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  box-shadow: 0 10px 28px rgba(90, 52, 31, 0.07);
 }
 
 .web-example-card {
@@ -657,7 +687,7 @@ a.service-card:hover {
   border-radius: var(--radius);
   display: block;
   object-fit: cover;
-  box-shadow: 0 12px 22px rgba(12, 59, 102, 0.16);
+  box-shadow: 0 12px 22px rgba(90, 52, 31, 0.16);
 }
 
 .web-example-card p {
@@ -685,7 +715,7 @@ a.service-card:hover {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  box-shadow: 0 10px 28px rgba(90, 52, 31, 0.07);
 }
 
 .picker-panel {
@@ -755,7 +785,7 @@ a.service-card:hover {
 .picker-option.is-selected,
 .segment-option.is-selected {
   border-color: var(--teal-dark);
-  background: #e7f7fb;
+  background: #f6eadc;
   box-shadow: inset 0 0 0 1px var(--teal-dark);
 }
 
@@ -763,7 +793,7 @@ a.service-card:hover {
 .picker-option:disabled {
   opacity: 0.42;
   cursor: not-allowed;
-  background: #f3f6f8;
+  background: #f4eee8;
   box-shadow: none;
 }
 
@@ -790,8 +820,8 @@ a.service-card:hover {
 .finish-preview {
   display: block;
   border-radius: 4px;
-  background: linear-gradient(135deg, #ffffff 0%, #edf3f6 55%, #c7d1d8 100%);
-  box-shadow: 0 12px 18px rgba(12, 59, 102, 0.12);
+  background: linear-gradient(135deg, #ffffff 0%, #f1e5d7 55%, #d7bea7 100%);
+  box-shadow: 0 12px 18px rgba(90, 52, 31, 0.14);
 }
 
 .mini-card {
@@ -826,7 +856,7 @@ a.service-card:hover {
   position: absolute;
   left: 18px;
   top: 18px;
-  color: rgba(12, 59, 102, 0.45);
+  color: rgba(90, 52, 31, 0.5);
   font-weight: 800;
 }
 
@@ -835,11 +865,11 @@ a.service-card:hover {
 }
 
 .finish-varnish {
-  background: linear-gradient(135deg, #dce3df 0%, #8f9d99 52%, #f8fbfb 100%);
+  background: linear-gradient(135deg, #efe2d3 0%, #9b7255 52%, #fffaf5 100%);
 }
 
 .finish-none {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f3f4 62%, #d8e0e3 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f5eadf 62%, #ddc6b0 100%);
 }
 
 .segmented-options {
@@ -860,7 +890,7 @@ a.service-card:hover {
   margin-bottom: 18px;
   padding: 18px;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, #ffffff, #eaf7f8);
+  background: linear-gradient(135deg, #ffffff, #f2e5d7);
   border: 1px solid var(--line);
 }
 
@@ -982,7 +1012,7 @@ select:focus,
 input:focus,
 textarea:focus {
   border-color: var(--teal);
-  box-shadow: 0 0 0 4px rgba(19, 166, 161, 0.14);
+  box-shadow: 0 0 0 4px rgba(164, 97, 45, 0.16);
 }
 
 .questions {
@@ -1075,7 +1105,7 @@ textarea:focus {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fbfdff;
+  background: #fffaf5;
 }
 
 .cart-item-header {
@@ -1132,7 +1162,7 @@ textarea:focus {
 }
 
 .contact-section {
-  background: linear-gradient(180deg, #f5f8fb, #ffffff);
+  background: linear-gradient(180deg, #f7f2ec, #ffffff);
 }
 
 .contact-grid {
@@ -1181,7 +1211,7 @@ textarea:focus {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 10px 28px rgba(12, 59, 102, 0.06);
+  box-shadow: 0 10px 28px rgba(90, 52, 31, 0.07);
   cursor: pointer;
 }
 
