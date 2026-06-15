@@ -2,5 +2,5 @@
   <title>Site avocat</title>
   <rect width="96" height="96" rx="10" fill="#5a341f"/>
   <path d="M48 22v48M30 34h36M24 74h48" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-  <path d="m30 34-12 22h24L30 34Zm36 0L54 56h24L66 34Z" fill="none" stroke="#a4612d" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m30 34-12 22h24L30 34Zm36 0L54 56h24L66 34Z" fill="none" stroke="#28706f" stroke-width="5" stroke-linejoin="round"/>
 </svg>
