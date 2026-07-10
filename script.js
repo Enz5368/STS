@@ -11,7 +11,8 @@ const prices = {
   ecranTelephone: 40,
   applicationLocale: 300,
   siteWebFormulaire: 290,
-  carteVisite: 25
+  carteVisite: 25,
+  portailPedagogique: 4.99
 };
 
 const businessCardPrices = {
@@ -295,6 +296,26 @@ const categories = {
       }
     ]
   },
+  portailPedagogique: {
+    label: "Portail Pédagogique Privé",
+    basePrice: prices.portailPedagogique,
+    billing: "monthly",
+    note: "Abonnement à 4,99 € par mois. Accès au portail : https://mes-cours.netlify.app/",
+    questions: [
+      {
+        id: "utilisationPortail",
+        title: "Utilisation Souhaitée",
+        type: "checkbox",
+        options: ["Classes", "Séquences", "Séances", "Activités", "Ressources"]
+      },
+      {
+        id: "demarrage",
+        title: "Démarrage Souhaité",
+        type: "radio",
+        options: ["Dès Que Possible", "À Une Date Précise", "Je Souhaite D’Abord Des Informations"]
+      }
+    ]
+  },
   cartesVisite: {
     label: "Cartes De Visite + Design",
     basePrice: prices.carteVisite,
@@ -349,7 +370,28 @@ const serviceCards = document.querySelectorAll(".service-card[data-sector]");
 const copyButtons = document.querySelectorAll(".copy-contact");
 
 function formatPrice(value) {
-  return `${value} \u20ac`;
+  return `${value.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} \u20ac`;
+}
+
+function getCartTotals() {
+  return cart.reduce((totals, item) => {
+    if (item.billing === "monthly") {
+      totals.monthly += item.price;
+    } else {
+      totals.oneTime += item.price;
+    }
+    return totals;
+  }, { oneTime: 0, monthly: 0 });
+}
+
+function formatCartTotals(totals) {
+  if (totals.monthly > 0 && totals.oneTime > 0) {
+    return `${formatPrice(totals.oneTime)} + ${formatPrice(totals.monthly)} / mois`;
+  }
+  if (totals.monthly > 0) {
+    return `${formatPrice(totals.monthly)} / mois`;
+  }
+  return formatPrice(totals.oneTime);
 }
 
 function loadCart() {
@@ -674,7 +716,8 @@ function addToCart() {
     selections,
     budget: getBudgetFromSelections(selections),
     price: isBusinessCardQuote ? 0 : price,
-    priceLabel: ""
+    priceLabel: category.billing === "monthly" ? `${formatPrice(price)} / mois` : "",
+    billing: category.billing || "one-time"
   });
 
   renderCart();
@@ -732,8 +775,8 @@ function renderCart() {
     cartItems.appendChild(article);
   });
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  cartTotal.textContent = formatPrice(total);
+  const totals = getCartTotals();
+  cartTotal.textContent = formatCartTotals(totals);
   cartSummaryInput.value = buildCartSummary();
   saveCart();
 }
@@ -765,7 +808,9 @@ function labelFromKey(key) {
     orientation: "Orientation",
     design: "Design",
     pages: "Pages",
-    formulaire: "Formulaire"
+    formulaire: "Formulaire",
+    utilisationPortail: "Utilisation Du Portail",
+    demarrage: "Démarrage"
   };
 
   return labels[key] || key;
@@ -795,8 +840,8 @@ function buildCartSummary() {
     ].join("\n");
   });
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  return `${lines.join("\n\n")}\n\nTotal Estimé: ${formatPrice(total)}`;
+  const totals = getCartTotals();
+  return `${lines.join("\n\n")}\n\nTotal Estimé: ${formatCartTotals(totals)}`;
 }
 
 function validateForm(event) {
